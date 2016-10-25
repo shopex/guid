@@ -57,18 +57,18 @@ func main() {
 	default:
 		topic := flag.Arg(1)
 		if topic != "" {
-			fmt.Fprintf(os.Stderr, " %s %s <options>%s\n options:\n", os.Args[0], topic, ommand_arg_line_info(topic))
+			fmt.Fprintf(os.Stderr, "%s %s <options>%s\noptions:\n", os.Args[0], topic, ommand_arg_line_info(topic))
 			parse_arg(topic)
 			flag.PrintDefaults()
 		} else {
-			fmt.Fprintf(os.Stderr, " Usage of %s:\n", os.Args[0])
-			fmt.Fprintln(os.Stderr, " Commands:")
-			fmt.Fprintln(os.Stderr, "    start       - start service")
-			fmt.Fprintln(os.Stderr, "    import      - import id list to bloomfilter from a file")
-			fmt.Fprintln(os.Stderr, "    top         - get top 10 id in redis")
-			fmt.Fprintln(os.Stderr, "    clear-redis - truncate id list in redis")
-			fmt.Fprintln(os.Stderr, "    has         - test id in bloomfilter")
-			fmt.Fprintln(os.Stderr, "\n More: guid help <command>")
+			fmt.Fprintf(os.Stderr, "Usage of %s:\n", os.Args[0])
+			fmt.Fprintln(os.Stderr, "Commands:")
+			fmt.Fprintln(os.Stderr, "   start       - start service")
+			fmt.Fprintln(os.Stderr, "   import      - import id list to bloomfilter from a file")
+			fmt.Fprintln(os.Stderr, "   top         - get top 10 id in redis")
+			fmt.Fprintln(os.Stderr, "   clear-redis - truncate id list in redis")
+			fmt.Fprintln(os.Stderr, "   has         - test id in bloomfilter")
+			fmt.Fprintln(os.Stderr, "\nMore: guid help <command>")
 		}
 		if command != "help" {
 			os.Exit(1)
