@@ -1,7 +1,15 @@
 guid
 ======================
 
-生成唯一id填充redis的指定key list. 使用bloomfilter做重复性判断.
+Generate uniq-id and RPUSH redis list, testing with bloomfilter.
 
-命令行帮助:
+Install:
+---------------------
+
+```
+go install github.com/flaboy/guid
+```
+
+Commands:
+---------------------
 

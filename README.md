@@ -1,9 +1,17 @@
 guid
 ======================
 
-生成唯一id填充redis的指定key list. 使用bloomfilter做重复性判断.
+Generate uniq-id and RPUSH redis list, testing with bloomfilter.
 
-命令行帮助:
+Install:
+---------------------
+
+```
+go install github.com/flaboy/guid
+```
+
+Commands:
+---------------------
 
 ```
 Usage of ./guid:
@@ -23,15 +31,15 @@ More: guid help <command>
 ./guid start <options>
 options:
   -idlen uint
-    	id长度. (default 20)
+    	id length. (default 20)
   -index string
-    	id唯一性校验索引文件 (default "guid.idx")
+    	bloomfilter index file (default "guid.idx")
   -key string
     	redis id-key (default "guid-20")
   -password string
     	redis password
   -redis string
-    	redis服务器地址 (default "127.0.0.1:6379")
+    	redis server address (default "127.0.0.1:6379")
 ```
 
 -------------------------
@@ -40,9 +48,9 @@ options:
 ./guid import <options>
 options:
   -file string
-    	导入文件
+    	file to import
   -index string
-    	id唯一性校验索引文件 (default "guid.idx")
+    	bloomfilter index file (default "guid.idx")
 ```
 
 -------------------------
@@ -55,7 +63,7 @@ options:
   -password string
     	redis password
   -redis string
-    	redis服务器地址 (default "127.0.0.1:6379")
+    	redis server address (default "127.0.0.1:6379")
 ```
 
 -------------------------
@@ -68,7 +76,7 @@ options:
   -password string
     	redis password
   -redis string
-    	redis服务器地址 (default "127.0.0.1:6379")
+    	redis server address (default "127.0.0.1:6379")
 ```
 
 -------------------------
@@ -77,5 +85,5 @@ options:
 ./guid has <options> <test>
 options:
   -index string
-    	id唯一性校验索引文件 (default "guid.idx")
+    	bloomfilter index file (default "guid.idx")
 ```

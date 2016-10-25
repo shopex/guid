@@ -239,18 +239,18 @@ func is_in_bloomfilter(test string) bool {
 func parse_arg(command string) {
 	switch command {
 	case "import", "has":
-		index_file = flag.String("index", "guid.idx", "id唯一性校验索引文件")
+		index_file = flag.String("index", "guid.idx", "bloomfilter index file")
 	case "top", "clear-redis", "start":
-		redis_server = flag.String("redis", "127.0.0.1:6379", "redis服务器地址")
+		redis_server = flag.String("redis", "127.0.0.1:6379", "redis server address")
 		redis_password = flag.String("password", "", "redis password")
 		redis_key = flag.String("key", "guid-"+strconv.Itoa(default_id_len), "redis id-key")
 	}
 
 	if command == "start" {
-		idlen = flag.Uint("idlen", default_id_len, "id长度.")
-		index_file = flag.String("index", "guid.idx", "id唯一性校验索引文件")
+		idlen = flag.Uint("idlen", default_id_len, "id length.")
+		index_file = flag.String("index", "guid.idx", "bloomfilter index file")
 	} else if command == "import" {
-		import_file = flag.String("file", "", "导入文件")
+		import_file = flag.String("file", "", "file to import")
 	}
 }
 
